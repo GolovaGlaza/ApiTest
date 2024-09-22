@@ -11,12 +11,12 @@ public class UserService {
 
     private final String baseUri;
 
-    public UserService(String baseUri){
+    public UserService(String baseUri) {
         this.baseUri = baseUri;
     }
 
     @Step("Регистрация пользователя с email: {user.email}")
-    public Response registerUser(User user){
+    public Response registerUser(User user) {
         return given()
                 .spec(Specifications.requestSpec(baseUri))
                 .body(user)
@@ -27,7 +27,7 @@ public class UserService {
     }
 
     @Step("Получение списка пользователей страницы: {page}")
-    public Response listUsers(int page){
+    public Response listUsers(int page) {
         return given()
                 .spec(Specifications.requestSpec(baseUri))
                 .when()
@@ -35,7 +35,7 @@ public class UserService {
     }
 
     @Step("Удаление пользователя с ID: {userId}")
-    public Response deleteUser(int userId){
+    public Response deleteUser(int userId) {
         return given()
                 .spec(Specifications.requestSpec(baseUri))
                 .when()
@@ -43,7 +43,7 @@ public class UserService {
     }
 
     @Step("Обновление пользователя с ID: {userId}")
-    public Response updateUser(int userId, User user){
+    public Response updateUser(int userId, User user) {
         return given()
                 .spec(Specifications.requestSpec(baseUri))
                 .body(user)
